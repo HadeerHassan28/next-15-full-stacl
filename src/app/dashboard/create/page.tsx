@@ -1,5 +1,5 @@
 import { handleSubmit } from "@/actions/formSub";
-import { Button } from "@/components/ui/button";
+import SubmitButton from "@/components/general/SubmitButton";
 import {
   Card,
   CardContent,
@@ -48,7 +48,7 @@ export default function () {
             </div>
 
             {/* Btn */}
-            <Button>Create Post</Button>
+            <SubmitButton />
           </form>
         </CardContent>
       </Card>
