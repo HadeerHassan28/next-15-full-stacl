@@ -19,7 +19,7 @@ export async function handleSubmit(formData: FormData) {
   const content = formData.get("content");
   const imgeUrl = formData.get("imgeUrl");
 
-  const data = await prisma.blogPost.create({
+  await prisma.blogPost.create({
     data: {
       title: title as string,
       content: content as string,
