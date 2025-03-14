@@ -9,6 +9,11 @@ export async function handleSubmit(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
+  // Check if the user is logged in
+  if (!user) {
+    return redirect("/api/auth/register");
+  }
+
   // Data from the form
   const title = formData.get("title");
   const content = formData.get("content");
