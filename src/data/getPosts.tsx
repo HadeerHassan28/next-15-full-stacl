@@ -28,7 +28,7 @@ export async function getUserPosts() {
 
   const data = await prisma.blogPost.findMany({
     where: {
-      autherid: user.id,
+      autherid: user?.id,
     },
     orderBy: {
       createdAt: "desc",
