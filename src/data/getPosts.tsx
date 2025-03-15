@@ -1,5 +1,6 @@
 import { prisma } from "@/uilts/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { notFound } from "next/navigation";
 
 // Get all posts
 export async function getPosts() {
@@ -11,6 +12,9 @@ export async function getPosts() {
       createdAt: true,
       autherName: true,
       imageUrl: true,
+      autherid: true,
+      updatedAt: true,
+      autherImage: true,
     },
   });
 
@@ -30,6 +34,21 @@ export async function getUserPosts() {
       createdAt: "desc",
     },
   });
+
+  return data;
+}
+
+//Find post by id
+export async function getPostById(id: string) {
+  const data = await prisma.blogPost.findUnique({
+    where: {
+      id: id,
+    },
+  });
+
+  if (!data) {
+    return notFound();
+  }
 
   return data;
 }
