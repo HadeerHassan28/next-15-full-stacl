@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import React from "react";
 
-export default function () {
+export default function CreatePage() {
   return (
     <div>
       <Card className="max-w-lg mx-auto">

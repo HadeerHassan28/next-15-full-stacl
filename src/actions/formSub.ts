@@ -19,6 +19,12 @@ export async function handleSubmit(formData: FormData) {
   const content = formData.get("content");
   const imgeUrl = formData.get("imgeUrl");
 
+  // Check if any form data is null
+  if (!title || !content || !imgeUrl) {
+    console.error("All fields are required");
+    return;
+  }
+
   await prisma.blogPost.create({
     data: {
       title: title as string,
