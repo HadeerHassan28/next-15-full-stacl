@@ -2,6 +2,8 @@ import BlogPostCard from "@/components/general/BlogPostCard";
 import { getPosts } from "@/data/getPosts";
 import { Suspense } from "react";
 
+export const revalidate = 60;
+
 export default function Home() {
   return (
     <div className="py-6">
