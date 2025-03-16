@@ -1,13 +1,8 @@
 import { withAuth } from "@kinde-oss/kinde-auth-nextjs/middleware";
 
-export default withAuth(
-  async function middleware(req: any) {
-    console.log("Middleware is running", req.nextUrl.pathname);
-  },
-  {
-    publicPaths: ["/"],
-  }
-);
+export default withAuth(async function middleware(req: any) {}, {
+  publicPaths: ["/"],
+});
 
 export const config = {
   matcher: [
